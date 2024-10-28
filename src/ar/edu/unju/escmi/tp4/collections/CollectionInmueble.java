@@ -38,6 +38,12 @@ public class CollectionInmueble {
 
     }
     
-    
+
+    public static void agregarVivienda(Vivienda nuevaVivienda) {
+        
+        inmuebles.add(nuevaVivienda);
+        System.out.println("Vivienda añadida con éxito");
+    }
+
     
 }
