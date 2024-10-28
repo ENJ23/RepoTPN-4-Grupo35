@@ -45,5 +45,29 @@ public class CollectionInmueble {
         System.out.println("Vivienda añadida con éxito");
     }
 
+
+    public static void mostrarInmueblesDisponibles(String tipo) {
+    	int cont = 0;
+        for (Inmueble inmueble : inmuebles) {
+            if (tipo.toLowerCase().equals("vivienda") && inmueble instanceof Vivienda ) {
+                Vivienda vivienda = (Vivienda) inmueble;
+                if (vivienda.isEstadoDisponibilidad()) {
+                	vivienda.mostrarDatos();
+                	cont ++;
+                }
+            } else if (tipo.toLowerCase().equals("terreno") && inmueble instanceof Terreno) {
+                Terreno terreno = (Terreno) inmueble;
+                if (terreno.isEstadoDisponibilidad()) {
+                	terreno.mostrarDatos();
+                	cont ++;
+                }
+
+            }
+        }
+        if (cont == 0) {
+        	System.out.println("No hay inmuebles disponibles del tipo seleccionado");
+        }
+    }
+  
     
 }
