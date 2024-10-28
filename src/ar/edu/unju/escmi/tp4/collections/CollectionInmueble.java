@@ -10,7 +10,7 @@ import ar.edu.unju.escmi.tp4.dominio.Vivienda;
 public class CollectionInmueble {
     public static ArrayList<Inmueble> inmuebles = new ArrayList<>();
     static Scanner scanner = new Scanner(System.in);
-    public static int idIncremental = 10;
+    public static int idIncremental = 11;
     
     
     public static void precargaInmuebles() {
@@ -25,8 +25,19 @@ public class CollectionInmueble {
         inmuebles.add(new Terreno(8, "Terreno en el centro", 150000,  CollectionInmobiliaria.inmobiliarias.get(0), true, -58.6543, 500, -34.9876));
         inmuebles.add(new Terreno(9, "Terreno en la montaña", 80000,  CollectionInmobiliaria.inmobiliarias.get(1), true, -58.8765, 1500, -34.4567));
         inmuebles.add(new Terreno(10, "Terreno en suburbio", 60000,  CollectionInmobiliaria.inmobiliarias.get(0), false, -58.3456, 1200, -34.2345));
-    
     }
+
+    public static int sumarId() {
+    	return idIncremental++;
+    }
+    
+    public static void agregarTerreno(Terreno nuevoTerreno) {
+    	
+        inmuebles.add(nuevoTerreno);
+        System.out.println("Terreno registrado exitosamente.");
+
+    }
+    
     
     
 }
