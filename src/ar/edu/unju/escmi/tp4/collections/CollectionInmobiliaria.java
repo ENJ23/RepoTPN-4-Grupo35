@@ -14,4 +14,12 @@ public class CollectionInmobiliaria {
         inmobiliarias.add(new Inmobiliaria("Inmobiliaria Tu Nuevo Hogar", "444333222", "Av. Libertador 101"));
         inmobiliarias.add(new Inmobiliaria("Inmobiliaria Sueños Realizados", "111222333", "Calle del Sol 202"));
     }
+    
+
+    public static void mostrarInmobiliarias() {
+    	for (Inmobiliaria inmobiliaria : inmobiliarias) {
+            inmobiliaria.mostrarDatos();
+        }
+    }
+    
 }
