@@ -1,4 +1,4 @@
-package ar.edu.unju.escmi.fi.tp4.dominio;
+package ar.edu.unju.escmi.tp4.dominio;
 
 public class Inmobiliaria {
 	private String nombre;
