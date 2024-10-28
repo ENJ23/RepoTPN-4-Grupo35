@@ -1,7 +1,7 @@
 package ar.edu.unju.escmi.tp4.main;
 
-import ar.edu.unju.escmi.fi.tp4.collections.*;
-import ar.edu.unju.escmi.fi.tp4.dominio.*;
+import ar.edu.unju.escmi.tp4.collections.*;
+import ar.edu.unju.escmi.tp4.dominio.*;
 
 import java.time.LocalDate;
 import java.util.Scanner;
