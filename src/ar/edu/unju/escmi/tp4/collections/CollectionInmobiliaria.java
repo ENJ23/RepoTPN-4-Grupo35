@@ -22,4 +22,14 @@ public class CollectionInmobiliaria {
         }
     }
     
+
+    public static Inmobiliaria buscarInmobiliaria(String nombre) {
+    	for (Inmobiliaria inmobiliaria : inmobiliarias) {
+            if (inmobiliaria.getNombre().equalsIgnoreCase(nombre)) {
+                return inmobiliaria; 
+            }
+        }
+        return null;
+    }
+    
 }
