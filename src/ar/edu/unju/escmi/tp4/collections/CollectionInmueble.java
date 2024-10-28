@@ -68,6 +68,17 @@ public class CollectionInmueble {
         	System.out.println("No hay inmuebles disponibles del tipo seleccionado");
         }
     }
+    
+    
+    public static Inmueble buscarInmueble(int id) {
+        	
+        	for (Inmueble i : inmuebles) {
+        		if (i.getId() == (id)) {
+        			return i;
+        		}
+        	}
+        	return null;
+        }
   
     
 }
