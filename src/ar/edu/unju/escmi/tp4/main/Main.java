@@ -35,6 +35,7 @@ public class Main {
         	}
             switch (opcion) {
                 case 1:
+                	try {
                 	int idTerreno = CollectionInmueble.sumarId();
                 	
                 	System.out.println("A que inmobiliaria pertenecerá este terreno? ");
@@ -66,12 +67,17 @@ public class Main {
                                                         codigoDisponibilidadTerreno, latitudTerreno,
                                                         longitudTerreno, superficieTerreno);
                     CollectionInmueble.agregarTerreno(nuevoTerreno);
-
+                	}catch(Exception e) {
+                		opcion = 999;
+                		scanner.nextLine();
+                		System.out.println("Ingrese los datos correctamente.");
+                	}
                     break;
                     
                 case 2:
+                	try {
                 	int idVivienda = CollectionInmueble.sumarId();
-                	System.out.println("A que inmobiliaria pertenecerá esta vivienda? ");
+                	System.out.println("A que inmobiliaria pertenecerá esta vivienda? (Ingrese el nombre completo de la Inmobiliaria. Ej: 'Inmobiliaria Espacio Ideal')");
                 	CollectionInmobiliaria.mostrarInmobiliarias();
                 	Inmobiliaria inmobiliariaVivienda = CollectionInmobiliaria.buscarInmobiliaria(scanner.nextLine());
                 	System.out.print("Ingrese el nombre de la vivienda: ");
@@ -93,9 +99,15 @@ public class Main {
                     Vivienda nuevaVivienda = new Vivienda(idVivienda,nombreVivienda, direccionVivienda, precioVivienda,inmobiliariaVivienda, 
                                                         estadoDisponibilidadVivienda, cantidadHabitaciones);
                     CollectionInmueble.agregarVivienda(nuevaVivienda);
+                	}catch(Exception e) {
+                		opcion = 999;
+                		scanner.nextLine();
+                		System.out.println("Ingrese los datos correctamente.");
+                	}
                     break;
                     
                 case 3:
+                	try {
                 	System.out.print("Ingrese el nombre del cliente: ");
                     String nombreCliente = scanner.nextLine();
 
@@ -116,10 +128,15 @@ public class Main {
 
                     Cliente nuevoCliente = new Cliente(nombreCliente,apellidoCliente,dniCliente,telefonoCliente,direccionCliente,emailCliente);
                     CollectionCliente.agregarCliente(nuevoCliente);
+                	}catch(Exception e) {
+                		opcion = 999;
+                		scanner.nextLine();
+                		System.out.println("Ingrese los datos correctamente.");
+                	}
                     break;
                     
                 case 4:
-                    
+                    try {
                 	System.out.println("Ingrese el DNI para empezar el trámite...");
                 	String dniBuscado = scanner.next();
                 	System.out.println("Ingrese el id de la vivienda a alquilar");
@@ -146,9 +163,14 @@ public class Main {
                 		viviendaAAlquilar.setEstadoDisponibilidad(false);
                 		CollectionContrato.agregarContrato(nuevoContratoAlquiler);
                 	}
-                	
+                    }catch(Exception e) {
+                		opcion = 999;
+                		scanner.nextLine();
+                		System.out.println("Ingrese los datos correctamente.");
+                	}
                     break;
                 case 5:
+                	try {
                 	System.out.println("Ingrese el DNI para empezar el trámite...");
                 	String dniComprador = scanner.next();
                 	System.out.println("Ingrese el id del Terreno a comprar");
@@ -173,8 +195,12 @@ public class Main {
                 		ContratoCompraVenta nuevoContratoTerreno = new ContratoCompraVenta(comprador,fechaContratoCompra,terrenoNuevo.getInmobiliaria(),terrenoNuevo,impuestos);
                 		terrenoAComprar.setEstadoDisponibilidad(false);
                 		CollectionContrato.agregarContrato(nuevoContratoTerreno);
+                		}
+                	}catch(Exception e) {
+                		opcion = 999;
+                		scanner.nextLine();
+                		System.out.println("Ingrese los datos correctamente.");
                 	}
-                	
                     break;
                     
                 case 6:
@@ -184,13 +210,17 @@ public class Main {
                 	do {
                 		
                     System.out.println("Ingrese el tipo de inmueble que busca:  (Vivienda - Terreno)");
-                    String tipo = scanner.next();
+                    String tipo = scanner.nextLine();
                     tipo = tipo.toLowerCase();
                     
                     if (tipo.equals("vivienda") || tipo.equals("terreno")) {
+                    	try {
                     	System.out.println("Mostrando " + tipo + "s disponibles: " );
                     	CollectionInmueble.mostrarInmueblesDisponibles(tipo);
                     	band = true;
+                    	}catch(Exception e) {
+                    		System.out.println("Ha ocurrido un error: " + e.getMessage());
+                    	}
                     }else {
                     	System.out.println("Ingrese el tipo con el formato correspondiente: 'terreno' , 'vivienda'. Intente nuevamente");
                     	band = false;
